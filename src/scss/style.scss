@@ -1,0 +1,321 @@
+@use "sass:math";
+// Подключение миксинов ===========================================================================================================================================================================================================================================================================
+@import "base/mixins";
+// Подключение шрифтов ===========================================================================================================================================================================================================================================================================
+//&display=swap - добавить при подключении через плагин
+// Подключить если есть локальные файлы шрифтов
+@import "fonts/fonts";
+// Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
+// Подключить если есть файл иконочного шрифта
+@import "fonts/icons";
+// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Red Hat Display";
+// font-family: 'Source Sans Pro', sans-serif 300 400 600 700;
+$fontSize: rem(18); // где 14(px) - размер шрифта по умолчанию из макета
+// Основные цвета
+$mainColor: #212832; // Цвет шрифта по умолчанию
+$orangeColor:#F1A501;
+$accentColor: #DF6951;
+$titleColor: #14183E;
+$textColor: #5E6282;
+// IndianRed	#CD5C5C	rgb(205, 92, 92)
+// LightCoral	#F08080	rgb(240, 128, 128)
+// Salmon	#FA8072	rgb(250, 128, 114)
+// DarkSalmon	#E9967A	rgb(233, 150, 122)
+// LightSalmon	#FFA07A	rgb(255, 160, 122)
+// НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1620;
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer+$containerPadding;
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
+// Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "base/null";
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Red Hat Display", sans-serif;
+    // Скролл заблокирован
+    .lock & {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    }
+    // // Сайт загружен
+    // .loaded & {}
+}
+
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    // Прижимаем footer
+    >main {
+        flex: 1 1 auto;
+    }
+    // Фикс для слайдеров
+    >* {
+        min-width: 0;
+    }
+    .page {
+        @include adaptiveValue("  margin-top", 48, 20, 1200, 768, 1);
+    }
+}
+
+section {
+    padding-top: rem(50);
+}
+
+// Ограничивающий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+
+[class*="__container"] {
+    max-width: rem(1200);
+    margin: 0 auto;
+}
+
+@if ($responsiveType==1) {
+    // Отзывчивая
+    [class*="__container-big"] {
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+            margin: 0 auto;
+        }
+        @if ($containerPadding>0) {
+            padding: 0 rem(math.div($containerPadding, 2));
+        }
+    }
+}
+
+@else {
+    // По брейк-поинтам
+    [class*="__container"] {
+        margin: 0 auto;
+        @if ($maxWidthContainer>0) {
+            max-width: rem($maxWidthContainer);
+            box-sizing: content-box;
+        }
+        @else {
+            @if ($containerPadding>0) {
+                padding: 0 rem(math.div($containerPadding, 2));
+            }
+        }
+        @media (max-width: $pc) {
+            max-width: rem(970);
+        }
+        @media (max-width: $tablet) {
+            max-width: rem(750);
+        }
+        @media (max-width: $mobile) {
+            max-width: none;
+            @if ($containerPadding>0 and $maxWidthContainer>0) {
+                padding: 0 rem(math.div($containerPadding, 2));
+            }
+        }
+    }
+}
+
+// Подключение базовых стилей, шаблонов (заготовок) и вспомагательных классов
+// Для подключения/отключения конкретных стилей смотри base.scss
+@import "base";
+// Подключение стилей общих элементов проекта
+@import "common";
+// Подключение стилей отдельных блоков
+@import "header";
+@import "footer";
+// Подключение стилей отдельных страниц
+@import "home";
+@import "hero";
+@import "aboute";
+// Section MAIN
+// Section MAIN END------------------------------------------------------------
+// BackGround Effect
+.bg {
+    z-index: -100;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(360deg, #e6e6e6 6%, #fff 40%);
+    &__glass {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        & li {
+            animation: spin 5s linear infinite;
+            position: absolute;
+            display: block;
+            list-style: none;
+            background-color: rgba(82, 147, 175, 0.25);
+            border: 1px solid rgba(18, 96, 100, 0.2);
+            bottom: -150px;
+            filter: blur(2px);
+            &:nth-child(1) {
+                left: 35%;
+                width: 150px;
+                height: 150px;
+                animation-delay: 1s;
+                animation-duration: 10s;
+            }
+            &:nth-child(2) {
+                left: 10%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 2s;
+                animation-duration: 12s;
+            }
+            &:nth-child(3) {
+                left: 70%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 4s;
+            }
+            &:nth-child(4) {
+                left: 40%;
+                width: 60px;
+                height: 60px;
+                animation-delay: 0s;
+                animation-duration: 18s;
+            }
+            &:nth-child(5) {
+                left: 65%;
+                width: 20px;
+                height: 20px;
+                animation-delay: 0s;
+            }
+            &:nth-child(6) {
+                left: 75%;
+                width: 110px;
+                height: 110px;
+                animation-duration: 3s;
+            }
+            &:nth-child(7) {
+                left: 35%;
+                width: 30px;
+                height: 30px;
+                animation-delay: 7s;
+            }
+            &:nth-child(8) {
+                left: 50%;
+                width: 25px;
+                height: 25px;
+                animation-delay: 15s;
+                animation-duration: 45s;
+                opacity: 0.3;
+            }
+            &:nth-child(9) {
+                left: 20%;
+                width: 15px;
+                height: 15px;
+                animation-delay: 2s;
+                animation-duration: 35s;
+            }
+            &:nth-child(10) {
+                left: 85%;
+                width: 35px;
+                height: 35px;
+                animation-delay: 0s;
+                animation-duration: 11s;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 50%;
+    }
+    100% {
+        transform: translateY(rem(-1000)) rotate(720deg);
+        opacity: 0.2;
+        border-radius: 50%;
+    }
+}
+
+// popup
+// callback form
+.form-popup {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: rem(18);
+    font-weight: 400;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        row-gap: rem(10);
+    }
+    // .form-popup__title
+    &__title {
+        font-size: rem(32);
+        line-height: math.div(36, 32);
+        color: #242731;
+        font-weight: 700;
+        @include adaptiveValue("padding-top", 30, 15, 1);
+    }
+    // .form-popup__text
+    &__text {
+        padding-top: rem(12);
+        font-size: rem(18);
+        line-height: math.div(22, 18);
+        color: #575F6E;
+        font-weight: 400;
+    }
+    &__form {
+        @include adaptiveValue("margin-top", 32, 15, 1);
+        @include adaptiveValue("margin-bottom", 32, 15, 1);
+        gap: rem(15);
+        display: flex;
+        flex-direction: column;
+    }
+    // .form-popup__input
+    &__input {
+        width: 100%;
+        min-height: 44px;
+        padding-left: rem(5);
+        box-shadow: 0px 0px 4px 3px rgba(20, 24, 62, 0.3);
+        border: 1px solid rgba(255, 255, 255, .4);
+        border-radius: rem(5);
+    }
+    // .form-popup__button
+    &__button {
+        @include adaptiveValue("margin-top", 30, 10, 1);
+    }
+    &__descript {
+        font-size: rem(14);
+        color: #242731;
+        &.hide {
+            display: none;
+        }
+    }
+}

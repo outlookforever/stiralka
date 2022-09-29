@@ -1,0 +1,102 @@
+// Заголовки, общие БЄМ блоки и проче...
+.bold {
+    font-weight: 600;
+}
+
+h1.title {
+    font-weight: 700;
+    font-size: rem(84);
+    line-height: math.div(89, 84);
+    letter-spacing: -0.04em;
+    color: $titleColor;
+}
+
+h2.title,
+h2._title {
+    font-weight: 700;
+    font-size: rem(50);
+    line-height: math.div(64, 64);
+    color: $titleColor;
+}
+
+h2.title {
+    text-transform: capitalize;
+    line-height: math.div(64, 50);
+}
+
+.subtitle {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 20, 17);
+    line-height: math.div(30, 20);
+    color: $accentColor;
+    text-transform: uppercase;
+}
+
+.text {
+    font-size: rem(16);
+    line-height: math.div(30, 16);
+    color: $textColor;
+}
+
+.category {
+    font-weight: 600;
+    font-size: rem(18);
+    line-height: math.div(27, 18);
+    color: #5E6282;
+}
+
+.btn {
+    transition: all 0.3s ease;
+    // .btn_nav
+    &_nav {
+        border: 1px solid $titleColor;
+        color: $titleColor;
+        border-radius: rem(5);
+        font-weight: 500;
+        @include adaptiveValue("font-size", 17, 15, 1200, 992, 1);
+        line-height: math.div(22, 17);
+        padding: rem(9) rem(22);
+        @include adaptiveValue("padding-top", 9, 7, 1200, 992, 1);
+        @include adaptiveValue("padding-bottom", 9, 7, 1200, 992, 1);
+        @include adaptiveValue("padding-left", 22, 15, 1200, 992, 1);
+        @include adaptiveValue("padding-right", 22, 15, 1200, 992, 1);
+        @media (any-hover: hover) {
+            &:hover {
+                color: #fff;
+                background-color: $accentColor;
+                border: 1px solid $accentColor;
+            }
+        }
+        &_620 {
+            @media (max-width: 620px) {
+                display: inline-block;
+                width: 100%;
+                margin: 0 rem(15);
+                text-align: center;
+                font-size: rem(32);
+                padding: rem(20) rem(25);
+                // border: 2px solid $accentColor;
+                background-color: $accentColor;
+                color: #fff;
+            }
+        }
+    }
+    // .btn_main
+    &_main {
+        background-color: #F1A501;
+        box-shadow: 0px 20px 35px rgba(241, 165, 1, 0.15);
+        border-radius: rem(10);
+        padding: rem(18) rem(26);
+        color: #fff;
+        font-weight: 500;
+        font-size: rem(18);
+        line-height: math.div(23, 18);
+        border: 1px solid $orangeColor;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $mainColor;
+                background-color: #fff;
+            }
+        }
+    }
+}

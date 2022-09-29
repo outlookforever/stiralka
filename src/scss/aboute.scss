@@ -1,0 +1,44 @@
+.aboute {
+    padding: 0px rem(10);
+    margin-top: rem(60);
+    margin-bottom: rem(20);
+    // .aboute__container
+    &__container {}
+    // .aboute__wrapper
+    &__wrapper {}
+    // .aboute__item
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: rem(20);
+        &:not(:last-child) {
+            padding-bottom: rem(20);
+        }
+    }
+    // .aboute__content
+    &__content {
+        width: 70%;
+    }
+    // .aboute__title
+    &__title {
+        padding: rem(20) rem(0);
+        line-height: math.div(28, 28);
+        @include adaptiveValue("font-size", 28, 20);
+    }
+    // .aboute__text
+    &__text {
+        line-height: math.div(22, 18);
+        @include adaptiveValue("font-size", 18, 14);
+    }
+    // .aboute__img
+    &__img {
+        width: rem(128);
+        height: rem(128);
+        @include adaptiveValue("width", 128, 64);
+        @include adaptiveValue("height", 128, 64);
+        img {
+            width: 100%;
+        }
+    }
+}

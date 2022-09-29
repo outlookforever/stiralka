@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{ "title":"Ремонт стиральных машин с выездом на дом" })
+<style>
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fcfcfc;
+        z-index: 105;
+    }
+    
+    #preloader.hide-preloader {
+        display: none;
+    }
+    
+    .circle {
+        width: 3vw;
+        height: 3vw;
+        border-radius: 100%;
+        margin: 2vw;
+        background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        animation: bounce 1.5s 0.5s linear infinite;
+    }
+    
+    .circle_1 {
+        background-color: rgba(223, 105, 81, 0.25);
+    }
+    
+    .circle_2 {
+        background-color: rgba(223, 105, 81, 0.5);
+        ;
+        animation-delay: 0.1s;
+    }
+    
+    .circle_3 {
+        background-color: rgba(223, 105, 81, 0.75);
+        ;
+        animation-delay: 0.2s;
+    }
+    
+    .circle_4 {
+        background-color: rgba(223, 105, 81, 1);
+        ;
+        animation-delay: 0.3s;
+    }
+    
+    @keyframes bounce {
+        0%,
+        50%,
+        100% {
+            transform: scale(1);
+            filter: blur(0px);
+        }
+        25% {
+            transform: scale(0.6);
+            filter: blur(3px);
+        }
+        75% {
+            filter: blur(3px);
+            transform: scale(1.4);
+        }
+    }
+</style>
+
+
+<body>
+    <div id="preloader">
+
+        <div class="circle circle_1"></div>
+        <div class="circle circle_2"></div>
+        <div class="circle circle_3"></div>
+        <div class="circle circle_4"></div>
+
+    </div>
+    <div class="wrapper">
+        <div class="wrapper__bg bg">
+            <ul class="bg__glass">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        @@include('html/_header.htm',{})
+        <main class="page">
+            <!-- @@include('html/_hero.htm',{}) -->
+            <section class="top" id="home">
+                <div class="top__container">
+                    <div class="top__inner">
+                        <div class="top__slider">
+                            <div class="top__swiper">
+                                <div class="top__slide">
+
+                                    <img src="@img/main-page/slider1.png" class="top__slider-img" alt="Slider 1">
+                                    <div class="top__slider-info">
+                                        <h1 class="top__slider-title" data-swiper-parallax="-800">Ремонт стиральных машин с выездом мастера</h1>
+                                        <p class="top__slider-line" data-swiper-parallax="-500"></p>
+                                        <p class="top__slider-text" data-swiper-parallax="-400">Главное в ремонте - это рациональность, надежность и выгодность </p>
+                                    </div>
+                                </div>
+                                <div class="top__slide">
+
+                                    <img src="@img/main-page/slider1.png" class="top__slider-img" alt="Slider 1">
+                                    <div class="top__slider-info">
+                                        <h1 class="top__slider-title" data-swiper-parallax="-800">Стиральной машине требуется ремонт?</h1>
+                                        <p class="top__slider-line" data-swiper-parallax="-500"></p>
+                                        <p class="top__slider-text" data-swiper-parallax="-400">Если стиральная машина сбоит или вообще не выполняет свои функции, обратитесь в Наш сервис! </p>
+                                    </div>
+                                </div>
+                                <div class="top__slide">
+
+                                    <img src="@img/main-page/slider1.png" class="top__slider-img" alt="Slider 1">
+                                    <div class="top__slider-info">
+                                        <h1 class="top__slider-title" data-swiper-parallax="-800">Стиральная машина перестала включаться? </h1>
+                                        <p class="top__slider-line" data-swiper-parallax="-500"></p>
+                                        <p class="top__slider-text" data-swiper-parallax="-400">Советуем вызвать мастера для выявления проблемы и ремонта стиральной машины. </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="top__slider-pagination"></div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </section>
+            <section class="aboute" id="aboute">
+                <div class="aboute__container">
+                    <div class="aboute__wrapper">
+                        <div data-aos="fade-right" data-aos-delay="50" class="aboute__item">
+                            <div class="aboute__content">
+                                <h3 class="aboute__title category">Ремонт стиральных машин — Симферополь</h3>
+                                <p class="aboute__text text">Частный мастер предлагает вам оперативный ремонт стиральных машин в Симферополе. Выезд по городу Симферополь осуществляется в течение дня, при заявке на ремонт стиральной машины в первой половине текущего дня, либо на следующий
+                                    рабочий день при звонке вечером.</p>
+                            </div>
+                            <img src="@img/main-page/aboute1.png" alt="Ремонт" class="aboute__img">
+                        </div>
+                        <div class="aboute__item" data-aos="fade-left" data-aos-delay="150">
+                            <img src="@img/main-page/aboute2.png" alt="Ремонт" class="aboute__img">
+                            <div class="aboute__content">
+                                <h3 class="aboute__title category">Ремонт стиральных машин — Симферополь</h3>
+                                <p class="aboute__text text">Частный мастер предлагает вам оперативный ремонт стиральных машин в Симферополе. Выезд по городу Симферополь осуществляется в течение дня, при заявке на ремонт стиральной машины в первой половине текущего дня, либо на следующий
+                                    рабочий день при звонке вечером.</p>
+                            </div>
+
+                        </div>
+                        <div class="aboute__item" data-aos="fade-right" data-aos-delay="250">
+                            <div class="aboute__content">
+                                <h3 class="aboute__title category">Ремонт стиральных машин — Симферополь</h3>
+                                <p class="aboute__text text">Частный мастер предлагает вам оперативный ремонт стиральных машин в Симферополе. Выезд по городу Симферополь осуществляется в течение дня, при заявке на ремонт стиральной машины в первой половине текущего дня, либо на следующий
+                                    рабочий день при звонке вечером.</p>
+                            </div>
+                            <img src="@img/main-page/aboute3.png" alt="Ремонт" class="aboute__img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+        </main>
+        <!-- @@include('html/_error.htm',{})  -->
+        @@include('html/_footer.htm',{})
+    </div>
+
+    @@include('html/_popup.htm',{}) @@include('html/_js.htm',{})
+</body>
+
+</html>

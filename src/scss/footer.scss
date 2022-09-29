@@ -1,0 +1,201 @@
+    //====================================================================================================
+    .footer {
+        margin: rem(10) 0 0 0;
+        background: rgba(255, 255, 255, .2);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 4px 3px rgba(20, 24, 62, 0.3);
+        font-weight: 500;
+        @include adaptiveValue("font-size", 17, 15, 1200, 992, 1);
+        line-height: math.div(22, 17);
+        color: $titleColor;
+        line-height: 1.2941176471;
+        color: #14183E;
+        // .footer__container
+        &__container {}
+        // .footer__body
+        &__body {
+            padding: 0 rem(10);
+            display: grid;
+            grid-template-columns: 30% 25% 1fr;
+            @include adaptiveValue("padding-top", 30, 15, 1);
+            @include adaptiveValue("padding-bottom", 30, 15, 1);
+            @include adaptiveValue("column-gap", 60, 15, 1);
+            @media (max-width: $mobile) {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+            }
+            @media (max-width: $mobileSmall) {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+        // .footer__main
+        &__main {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            @media (max-width: $mobileSmall) {
+                align-items: center;
+            }
+        }
+        // .footer__logo
+        &__logo {
+            @include adaptiveValue("padding-bottom", 24, 16);
+        }
+        // .footer__text
+        &__text {
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+        }
+        // .footer__contacts
+        &__contacts {}
+        // .footer__menu
+        &__menu {}
+        // .footer__subscribe
+        &__subscribe {}
+    }
+    
+    .contacts-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: rem(7);
+        // .contacts-footer__item
+        &__item {
+            display: inline-flex;
+            transition: all 0.3s ease 0s;
+            &::before {
+                margin-right: rem(8);
+            }
+            &:hover {
+                color: $accentColor;
+                transform: translate(10px);
+            }
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 12, 8, 1);
+            }
+            &_center {
+                align-self: center;
+            }
+        }
+    }
+    
+    .menu-footer {
+        @media (max-width: $mobileSmall) {
+            text-align: center;
+            margin-top: rem(30);
+        }
+        // .menu-footer__column
+        &__column {}
+        // .menu-footer__title
+        &__title {
+            @include adaptiveValue("padding-bottom", 24, 16);
+        }
+        // .menu-footer__list
+        &__list {}
+        // .menu-footer__item
+        &__item {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 12, 8, 1);
+            }
+        }
+        // .menu-footer__link
+        &__link {
+            font-size: rem(19);
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $accentColor;
+                    transform: translate(10px);
+                }
+            }
+        }
+    }
+    
+    .subscribe {
+        @media (max-width: $mobile) {
+            grid-column: span 2;
+            margin-top: rem(30);
+            text-align: center;
+        }
+        @media (max-width:$mobileSmall) {
+            grid-column: span 1;
+        }
+        // .subscribe_btn
+        &_btn {}
+        // .subscribe__title
+        &__title {
+            @include adaptiveValue("padding-bottom", 24, 16);
+        }
+        // .subscribe__form
+        &__form {}
+        // .subscribe__input
+        &__input {}
+        // .subscribe__btns
+        &__btns {
+            display: flex;
+            flex-direction: column;
+            @media (max-width: $mobile) {
+                align-items: center;
+            }
+        }
+        // .subscribe__btn
+        &__btn {
+            display: inline-block;
+            width: rem(210);
+            transition: all 0.3s ease 0s;
+            white-space: nowrap;
+            text-align: center;
+            border: 1px solid $titleColor;
+            color: $titleColor;
+            border-radius: rem(5);
+            font-weight: 500;
+            @include adaptiveValue("font-size", 17, 15, 1200, 992, 1);
+            line-height: math.div(22, 17);
+            padding: rem(9) rem(22);
+            @include adaptiveValue("padding-top", 9, 7, 1200, 992, 1);
+            @include adaptiveValue("padding-bottom", 9, 7, 1200, 992, 1);
+            @include adaptiveValue("padding-left", 22, 15, 1200, 992, 1);
+            @include adaptiveValue("padding-right", 22, 15, 1200, 992, 1);
+            &:not(:last-child) {
+                margin-bottom: rem(10);
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    color: #fff;
+                    background-color: $accentColor;
+                    border: 1px solid $accentColor;
+                }
+            }
+        }
+        // .subscribe__sochials
+        &__sochials {
+            display: flex;
+            gap: rem(20);
+            justify-content: start;
+            padding-top: rem(30);
+            @media (max-width: $mobile) {
+                justify-content: center;
+            }
+        }
+        // .subscribe__sochial
+        &__sochial {
+            font-size: rem(30);
+            transition: color 0.2s ease 0s;
+            &:hover {
+                color: $accentColor;
+            }
+        }
+    }
+    
+    .footer {
+        .subtitle {
+            @include adaptiveValue("font-size", 21, 19, 1920, 768, 1);
+        }
+    }
+    
+    //====================================================================================================
