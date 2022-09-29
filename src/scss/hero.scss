@@ -1,0 +1,188 @@
+.top {
+    @include adaptiveValue("margin-top", 28, 0, 1620, 768, 1);
+    // .top__container
+    &__container {}
+    // .top__inner
+    &__inner {
+        background: url("../img/main-page/bg__inner.png") no-repeat 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        @media (max-width: rem(620)) {
+            background-position: center center;
+            background-size: 150%;
+            background-size: 100%;
+        }
+    }
+    // .top__slider
+    &__slider {
+        @media (max-width: rem(620)) {
+            max-width: auto;
+        }
+    }
+    // .top__swiper
+    &__swiper {}
+    // .top__slide
+    &__slide {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        @media (max-width: rem(620)) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        &_620 {
+            text-align: center;
+        }
+    }
+    // .top__slider-img
+    &__slider-img {
+        @include adaptiveValue("width",
+        500,
+        250,
+        1200,
+        768,
+        1);
+        @include adaptiveValue("margin-left",
+        40,
+        10,
+        1200,
+        768,
+        1);
+        @include adaptiveValue("margin-right",
+        40,
+        10,
+        1200,
+        768,
+        1);
+        img {
+            width: 100%;
+        }
+    }
+    // .top__slider-info
+    &__slider-info {
+        width: 100%;
+        text-align: left;
+        position: relative;
+        @media (max-width: rem(620)) {
+            text-align: center;
+        }
+    }
+    // .top__slider-title
+    &__slider-title {
+        color: $titleColor;
+        font-family: "Source Sans Pro", sans-serif;
+        position: absolute;
+        @include adaptiveValue("left",
+        -80,
+        -30,
+        1200,
+        768,
+        1);
+        margin-top: rem(85);
+        max-width: rem(675);
+        font-weight: 700;
+        @include adaptiveValue("font-size",
+        60,
+        30,
+        1200,
+        768,
+        1);
+        line-height: math.div(60, 60);
+        @media (max-width: rem(620)) {
+            max-width: 100%;
+            padding: 0px rem(10);
+            left: 0;
+            margin: 0;
+            position: relative;
+        }
+    }
+    // .top__slider-text
+    &__slider-text {
+        font-family: "Red Hat Display";
+        max-width: rem(586);
+        font-weight: 400;
+        @include adaptiveValue("font-size",
+        20,
+        16,
+        1200,
+        768,
+        1);
+        line-height: math.div(27, 20);
+        @include adaptiveValue("padding-top",
+        50,
+        20,
+        1200,
+        768,
+        1);
+        color: #363838;
+        @media (max-width: rem(620)) {
+            max-width: 100%;
+            margin: rem(10) rem(15);
+            background: rgba(255, 255, 255, .2);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 4px 3px rgba(20, 24, 62, 0.3);
+            padding: rem(10) rem(15);
+            font-weight: 500;
+            color: #3c3b3b;
+        }
+    }
+    &__slider-line {
+        width: rem(185);
+        height: 1px;
+        @include adaptiveValue("margin-top",
+        322,
+        200,
+        1200,
+        768,
+        1);
+        background-color: #949494;
+        border: 1px solid #949494;
+        @media (max-width: rem(620)) {
+            display: none;
+        }
+    }
+}
+
+.top {
+    position: relative;
+    // .top__slider-pagination
+    &__slider-pagination {
+        @media (max-width: rem(620)) {
+            display: none;
+        }
+        z-index: 20;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include adaptiveValue("bottom",
+        50,
+        10,
+        1200,
+        768,
+        1);
+        right: 30%;
+    }
+    .swiper-pagination-bullet {
+        cursor: pointer;
+        width: rem(12);
+        height: rem(12);
+        background-color: #949494;
+        border: 1px solid #DF6951;
+        border-radius: 100%;
+        margin-right: rem(20);
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #DF6951;
+            }
+        }
+    }
+    .swiper-pagination-bullet-active {
+        background-color: #DF6951;
+        scale: (1.3);
+    }
+}

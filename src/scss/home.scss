@@ -1,0 +1,28 @@
+//====================================================================================================
+// error section
+//====================================================================================================
+.error-block {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include adaptiveValue("margin-top", 200, 100, 1200, 320, 1);
+    // error-block__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: rem(800);
+    }
+    h2 {
+        @include adaptiveValue(" margin-top", 50, 20, 1200, 320, 1);
+        @include adaptiveValue("font-size", 48, 20);
+    }
+    h1 {
+        @include adaptiveValue(" margin-top", 50, 20, 1200, 320, 1);
+        @include adaptiveValue("font-size", 64, 24);
+    }
+}
+
+//====================================================================================================
